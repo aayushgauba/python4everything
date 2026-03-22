@@ -20,7 +20,7 @@ class ConferencePagesTests(TestCase):
 
     def test_key_content_is_present(self):
         response = self.client.get(reverse('home'))
-        self.assertContains(response, 'Python 4 Almost Everyone')
+        self.assertContains(response, 'Python 4 Almost Everything')
         self.assertContains(response, 'June 18')
         self.assertContains(response, 'TREX STL Convention Center')
 

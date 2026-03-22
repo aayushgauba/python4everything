@@ -1,0 +1,25 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}Home | Python 4 Almost Everyone{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">St. Louis Python Community Conference</p>
+  <h1>Python 4 Almost Everyone</h1>
+  <p class="lede">Join students, hobbyists, and professionals for an evening of talks, networking, and practical Python ideas.</p>
+  <div class="event-grid">
+    <article>
+      <h2>When</h2>
+      <p>June 18<br>4:00 PM to 7:00 PM</p>
+    </article>
+    <article>
+      <h2>Where</h2>
+      <p>TREX STL Convention Center<br>911 Washington Ave<br>St. Louis, MO 63101</p>
+    </article>
+  </div>
+  <div class="cta-row">
+    <a class="button primary" href="{% url 'speaking' %}">Apply to Speak</a>
+    <a class="button" href="https://www.google.com/maps/search/?api=1&query=911+Washington+Ave+St.+Louis+MO+63101" target="_blank" rel="noopener noreferrer">Open Venue Map</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}News | Python 4 Almost Everyone{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <h2 class="panel-title">Conference News</h2>
+  <div class="news-list">
+    {% for item in news_items %}
+      <article class="news-item">
+        <p class="news-date">{{ item.date_published|date:"F j, Y" }}</p>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.content|linebreaksbr }}</p>
+      </article>
+    {% empty %}
+      <article class="news-item">
+        <h2>No News Published Yet</h2>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

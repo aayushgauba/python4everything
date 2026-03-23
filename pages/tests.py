@@ -39,4 +39,4 @@ class ConferencePagesTests(TestCase):
 
         response = self.client.get(reverse('speaking'))
         self.assertContains(response, 'Submit Your Proposal')
-        self.assertContains(response, '')
+        self.assertContains(response, 'https://forms.gle/D1EHzv4JxFH66u6f9')

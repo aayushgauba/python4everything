@@ -1,10 +1,15 @@
 {% extends 'pages/base.html' %}
 
 {% block title %}News | Python 4 Almost Everything{% endblock %}
+{% block meta_description %}Read the latest conference updates, announcements, and timeline details for Python 4 Almost Everything in St. Louis.{% endblock %}
+{% block og_title %}News | Python 4 Almost Everything{% endblock %}
+{% block og_description %}Latest updates and announcements for Python 4 Almost Everything.{% endblock %}
+{% block twitter_title %}News | Python 4 Almost Everything{% endblock %}
+{% block twitter_description %}Latest updates and announcements for Python 4 Almost Everything.{% endblock %}
 
 {% block content %}
 <section class="panel">
-  <h2 class="panel-title">Conference News</h2>
+  <h1 class="panel-title">Conference News</h1>
   <div class="news-list">
     {% for item in news_items %}
       <article class="news-item">

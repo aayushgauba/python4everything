@@ -5,6 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Python 4 Almost Everything{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Python 4 Almost Everything is a St. Louis community Python conference with talks, networking, and practical sessions.{% endblock %}">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+  <meta property="og:site_name" content="Python 4 Almost Everything">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% block og_title %}{% block og_title_fallback %}Python 4 Almost Everything{% endblock %}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Python 4 Almost Everything is a St. Louis community Python conference with talks, networking, and practical sessions.{% endblock %}">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% block twitter_title %}Python 4 Almost Everything{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Python 4 Almost Everything is a St. Louis community Python conference with talks, networking, and practical sessions.{% endblock %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">

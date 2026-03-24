@@ -31,7 +31,7 @@ class ConferencePagesTests(TestCase):
 
         response = self.client.get(reverse('news'))
         self.assertContains(response, 'Conference News')
-        self.assertContains(response, 'More Updates Soon')
+        self.assertContains(response, 'No News Published Yet')
 
         response = self.client.get(reverse('venue'))
         self.assertContains(response, '911 Washington Ave')
@@ -40,3 +40,28 @@ class ConferencePagesTests(TestCase):
         response = self.client.get(reverse('speaking'))
         self.assertContains(response, 'Submit Your Proposal')
         self.assertContains(response, 'https://forms.gle/D1EHzv4JxFH66u6f9')
+
+    def test_pages_include_core_seo_tags(self):
+        expected_descriptions = {
+            'home': 'St. Louis Python conference',
+            'about': 'local St. Louis Python conference',
+            'news': 'latest conference updates',
+            'venue': 'Venue details for Python 4 Almost Everything',
+            'speaking': 'Apply to speak at Python 4 Almost Everything',
+        }
+        for name, expected_description in expected_descriptions.items():
+            with self.subTest(route=name):
+                response = self.client.get(reverse(name))
+                self.assertContains(response, '<meta name="description"', html=False)
+                self.assertContains(response, expected_description)
+                self.assertContains(response, '<link rel="canonical" href="http://testserver', html=False)
+                self.assertContains(response, '<meta property="og:title"', html=False)
+                self.assertContains(response, '<meta property="og:description"', html=False)
+                self.assertContains(response, '<meta name="twitter:card" content="summary">', html=False)
+
+    def test_each_page_has_single_h1(self):
+        for name in ['home', 'about', 'news', 'venue', 'speaking']:
+            with self.subTest(route=name):
+                response = self.client.get(reverse(name))
+                html = response.content.decode('utf-8')
+                self.assertEqual(html.count('<h1'), 1)

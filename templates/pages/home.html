@@ -27,4 +27,25 @@
     <a class="button" href="https://www.google.com/maps/search/?api=1&query=911+Washington+Ave+St.+Louis+MO+63101" target="_blank" rel="noopener noreferrer">Open Venue Map</a>
   </div>
 </section>
+
+{% if meetup_images %}
+<section class="meetup-slider">
+  <div class="slider-container">
+    <div class="slider">
+      {% for image in meetup_images %}
+      <div class="slide">
+        <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" loading="lazy">
+      </div>
+      {% endfor %}
+    </div>
+    <button class="slider-nav prev" aria-label="Previous image">❮</button>
+    <button class="slider-nav next" aria-label="Next image">❯</button>
+    <div class="slider-dots">
+      {% for image in meetup_images %}
+      <button class="dot" data-index="{{ forloop.counter0 }}" aria-label="Go to image {{ forloop.counter }}"></button>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

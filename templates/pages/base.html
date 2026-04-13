@@ -47,9 +47,84 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>Python 4 Almost Everything · St. Louis · June 18 · 4:00 PM to 7:00 PM</p>
+        <div class="footer-content">
+          <p>Python 4 Almost Everything · St. Louis · June 18 · 4:00 PM to 7:00 PM</p>
+          <div class="logos-grid">
+            <img src="{% static 'image/python.png' %}" alt="Python Software Foundation" class="partner-logo">
+            <img src="{% static 'image/numfocus.png' %}" alt="NumFOCUS" class="partner-logo">
+          </div>
+        </div>
       </div>
     </footer>
   </div>
+
+  <script>
+    // Meetup Slider Functionality
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    function updateSlider() {
+      const offset = -currentIndex * 100;
+      slider.style.transform = `translateX(${offset}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+      resetAutoPlay();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+      resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlider();
+      resetAutoPlay();
+    }
+
+    function autoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      autoPlay();
+    }
+
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Initialize
+    if (slides.length > 0) {
+      updateSlider();
+      autoPlay();
+    }
+  </script>
 </body>
 </html>

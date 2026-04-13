@@ -1,10 +1,11 @@
 from django.shortcuts import render
 
-from .models import NewsItem
+from .models import NewsItem, MeetupImage
 
 
 def home(request):
-    return render(request, 'pages/home.html')
+    meetup_images = MeetupImage.objects.all()
+    return render(request, 'pages/home.html', {'meetup_images': meetup_images})
 
 
 def about(request):

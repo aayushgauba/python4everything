@@ -309,8 +309,8 @@ address {
 
 /* Meetup Slider Styles */
 .meetup-slider {
-  margin: 3rem 0;
-  padding: 2rem 0;
+  margin: 0 0 3rem 0;
+  padding: 0;
 }
 
 .slider-container {
@@ -398,6 +398,54 @@ address {
   background: rgba(255, 255, 255, 0.7);
 }
 
+/* Sponsors Section */
+.sponsors-section {
+  background: linear-gradient(135deg, rgba(15, 123, 102, 0.08), rgba(255, 207, 90, 0.08));
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 0 0 3rem 0;
+  text-align: center;
+}
+
+.sponsors-content h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sponsors-grid {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sponsor-logo-large {
+  height: 80px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.sponsor-logo-large:hover {
+  opacity: 1;
+}
+
+.sponsor-logo {
+  height: 60px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.sponsor-logo:hover {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .slide {
     aspect-ratio: 16 / 10;
@@ -423,5 +471,21 @@ address {
   .dot {
     width: 10px;
     height: 10px;
+  }
+
+  .sponsors-section {
+    padding: 1.5rem;
+  }
+
+  .sponsors-grid {
+    gap: 1.5rem;
+  }
+
+  .sponsor-logo-large {
+    height: 60px;
+  }
+
+  .sponsor-logo {
+    height: 45px;
   }
 }

@@ -1,4 +1,5 @@
 {% extends 'pages/base.html' %}
+{% load static %}
 
 {% block title %}Home | Python 4 Almost Everything{% endblock %}
 {% block meta_description %}Python 4 Almost Everything is a St. Louis Python conference on June 18 with practical talks, networking, and community learning.{% endblock %}
@@ -8,26 +9,6 @@
 {% block twitter_description %}Join the St. Louis Python community for talks, networking, and practical ideas on June 18.{% endblock %}
 
 {% block content %}
-<section class="hero">
-  <p class="eyebrow">St. Louis Python Community Conference</p>
-  <h1>Python 4 Almost Everything</h1>
-  <p class="lede">Join professionals, hobbyists, and students for an evening of talks.</p>
-  <div class="event-grid">
-    <article>
-      <h2>When</h2>
-      <p>June 18<br>4:00 PM to 7:00 PM</p>
-    </article>
-    <article>
-      <h2>Where</h2>
-      <p>TREX STL Convention Center<br>911 Washington Ave<br>St. Louis, MO 63101</p>
-    </article>
-  </div>
-  <div class="cta-row">
-    <a class="button primary" href="{% url 'speaking' %}">Apply to Speak</a>
-    <a class="button" href="https://www.google.com/maps/search/?api=1&query=911+Washington+Ave+St.+Louis+MO+63101" target="_blank" rel="noopener noreferrer">Open Venue Map</a>
-  </div>
-</section>
-
 {% if meetup_images %}
 <section class="meetup-slider">
   <div class="slider-container">
@@ -48,4 +29,34 @@
   </div>
 </section>
 {% endif %}
+
+<section class="sponsors-section">
+  <div class="sponsors-content">
+    <h2>Proudly Sponsored By</h2>
+    <div class="sponsors-grid">
+      <img src="{% static 'image/pythonfull.png' %}" alt="Python Software Foundation" class="sponsor-logo-large">
+      <img src="{% static 'image/numfocus.png' %}" alt="NumFOCUS" class="sponsor-logo">
+    </div>
+  </div>
+</section>
+
+<section class="hero">
+  <p class="eyebrow">St. Louis Python Community Conference</p>
+  <h1>Python 4 Almost Everything</h1>
+  <p class="lede">Join professionals, hobbyists, and students for an evening of talks.</p>
+  <div class="event-grid">
+    <article>
+      <h2>When</h2>
+      <p>June 18<br>4:00 PM to 7:00 PM</p>
+    </article>
+    <article>
+      <h2>Where</h2>
+      <p>TREX STL Convention Center<br>911 Washington Ave<br>St. Louis, MO 63101</p>
+    </article>
+  </div>
+  <div class="cta-row">
+    <a class="button primary" href="{% url 'speaking' %}">Apply to Speak</a>
+    <a class="button" href="https://www.google.com/maps/search/?api=1&query=911+Washington+Ave+St.+Louis+MO+63101" target="_blank" rel="noopener noreferrer">Open Venue Map</a>
+  </div>
+</section>
 {% endblock %}

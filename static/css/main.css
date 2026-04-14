@@ -408,6 +408,16 @@ address {
   text-align: center;
 }
 
+.acm-badge {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+}
+
 .sponsors-content h2 {
   margin: 0 0 1.5rem 0;
   font-size: 1.3rem;
@@ -417,11 +427,11 @@ address {
 }
 
 .sponsors-grid {
-  display: flex;
-  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-items: center;
 }
 
 .sponsor-logo-large {
@@ -477,8 +487,21 @@ address {
     padding: 1.5rem;
   }
 
+  .acm-badge {
+    margin: 0 0 1rem 0;
+  }
+
   .sponsors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1.5rem;
+  }
+
+  .sponsor-logo-large {
+    height: 60px;
+  }
+
+  .sponsor-logo {
+    height: 45px;
   }
 
   .sponsor-logo-large {

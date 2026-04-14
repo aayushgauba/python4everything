@@ -294,16 +294,23 @@ address {
 @media (max-width: 640px) {
   .footer-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-content p {
+    width: 100%;
   }
   
   .logos-grid {
-    gap: 1rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .partner-logo {
-    height: 35px;
+    height: 32px;
   }
 }
 

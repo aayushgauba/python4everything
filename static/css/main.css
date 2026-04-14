@@ -410,8 +410,8 @@ address {
   background: linear-gradient(135deg, rgba(15, 123, 102, 0.08), rgba(255, 207, 90, 0.08));
   border: 2px solid var(--border);
   border-radius: 12px;
-  padding: 2rem;
-  margin: 0 0 3rem 0;
+  padding: 2.5rem 2rem;
+  margin: 0 0 4rem 0;
   text-align: center;
 }
 
